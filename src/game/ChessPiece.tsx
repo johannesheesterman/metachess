@@ -48,7 +48,8 @@ export const ChessPiece = (props) => {
             rotation={rotation}
             scale={hovered ? 1.1 : 1}
             onPointerOver={onOver}
-            onPointerOut={onOut}>
+            onPointerOut={onOut}
+            onClick={props.onClick}>
             {(() => {
                 switch(props.type){                    
                     case ChessPieceType.Rook:

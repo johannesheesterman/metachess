@@ -56,16 +56,24 @@ export const Game = () => {
     const group = useRef()
     const { nodes, materials } = useGLTF('models/chess/scene.gltf') as GLTFResult;   
     
+    function pieceClicked(){
+        console.log('piece clicked!');
+    }
+
     const fillBoard = () => {
         return chessPieces.map(p => (
-            <ChessPiece key={p.position} type={p.type} color={p.color} position={p.position} />
+            <ChessPiece key={p.position} type={p.type} color={p.color} position={p.position} onClick={pieceClicked} />
         ));
     };
+
+    function playerClicked(){
+        console.log('player clicked!');
+    }
 
     return (
         <group rotation={[-Math.PI / 2, 0, 0]}>
             <mesh geometry={nodes.ChessBoard_LO_0.geometry} material={materials.ChessBoard} />
-            <Player position={[0, 0, 0]}></Player>
+            <Player position={[0, 0, 0]} onClick={playerClicked}></Player>
 
             {fillBoard()}
         </group>        

@@ -24,6 +24,7 @@ const CameraController = () => {
 
 ReactDOM.render(
     <Canvas>
+         <color attach="background" args={["black"]} />
         <PerspectiveCamera makeDefault position={[25,20,0]} />
         <CameraController />
         <Suspense fallback={null}>
