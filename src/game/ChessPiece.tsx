@@ -1,4 +1,5 @@
 import { useGLTF } from "@react-three/drei";
+import { useState } from "react";
 import { GLTFResult } from "../types/GLTFResult";
 
 export enum ChessPieceType {
@@ -29,11 +30,25 @@ export const ChessPiece = (props) => {
     }
 
     const { nodes } = useGLTF('models/chess/scene.gltf') as GLTFResult;
+    const [hovered, hover] = useState(false);
+
+    function onOver(){
+        hover(true);
+        document.body.style.cursor = 'pointer';
+    }
+    function onOut(){
+        hover(false);
+        document.body.style.cursor = 'default';
+    }
 
     const rotation = props.color === ChessPieceColor.White ? [0, 0, 0] : [0, 0, -Math.PI];
 
     return (
-        <group {...props} rotation={rotation}>
+        <group {...props} 
+            rotation={rotation}
+            scale={hovered ? 1.1 : 1}
+            onPointerOver={onOver}
+            onPointerOut={onOut}>
             {(() => {
                 switch(props.type){                    
                     case ChessPieceType.Rook:

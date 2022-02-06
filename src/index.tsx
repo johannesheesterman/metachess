@@ -30,6 +30,6 @@ ReactDOM.render(
             <Game />
         </Suspense>
         <ambientLight />
-        <pointLight position={[10, 10, 10]} />
+        <pointLight position={[20, 20, 10]} />
     </Canvas>
     , document.getElementById("root"));
