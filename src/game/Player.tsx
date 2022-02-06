@@ -1,7 +1,7 @@
 import { useGLTF } from "@react-three/drei";
 import { useRef } from "react";
 import { GLTFResult } from "../types/GLTFResult";
-import { ChessPiece, ChessPieceType } from "./ChessPiece";
+import { ChessPiece, ChessPieceColor, ChessPieceType } from "./ChessPiece";
 
 
 export const Player = (props) => {
@@ -9,7 +9,7 @@ export const Player = (props) => {
 
     return (
         <group {...props}>
-            <ChessPiece type={ChessPieceType.Queen} />
+            <ChessPiece type={ChessPieceType.Queen} color={ChessPieceColor.White} />
         </group>        
     );
 };
